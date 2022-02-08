@@ -49,6 +49,7 @@
         },
 
         checkVisits(boolean) {
+            if(typeof boolean !== 'boolean') throw new Error('Argument data-type is not a boolean.')
             const emptyElIndex = this.findEmptyElIndex(this.attendance);
             if(emptyElIndex >= 0) this.attendance[emptyElIndex] = boolean;
         },
@@ -78,7 +79,7 @@
 
         overageValue(arr) {
             let emptyElIndex = this.findEmptyElIndex(arr);
-            if(emptyElIndex === -1) emptyElIndex = 10;
+            if(emptyElIndex === -1) emptyElIndex = arr.length;
             return arr.reduce((a, b) => (a + b)) / emptyElIndex;
         },
 
