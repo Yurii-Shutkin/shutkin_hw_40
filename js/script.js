@@ -125,11 +125,4 @@
     console.log(vova);
     console.log(noname);
 
-    function A (a) {
-        this.a = a;
-    }
-
-    const b = new A('d');
-    console.log(Object.getOwnPropertyDescriptor(A.prototype, 'constructor'))
-    console.log(b)
 })();
