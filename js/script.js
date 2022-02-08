@@ -49,7 +49,7 @@
         },
 
         checkVisits(boolean) {
-            if(typeof boolean !== 'boolean') throw new Error('Argument data-type is not a boolean.')
+            if(typeof boolean !== 'boolean') throw new Error('Argument data type is not a boolean.')
             const emptyElIndex = this.findEmptyElIndex(this.attendance);
             if(emptyElIndex >= 0) this.attendance[emptyElIndex] = boolean;
         },
