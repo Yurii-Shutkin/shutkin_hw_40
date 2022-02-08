@@ -107,8 +107,8 @@
         ...studentPrototype,
     };
     
-    Object.defineProperty(studentPrototype, 'constructor', {enumerable: false});
-    console.log(Object.getOwnPropertyDescriptor(studentPrototype, 'constructor'));
+    Object.defineProperty(Student.prototype, 'constructor', {enumerable: false});
+    console.log(Object.getOwnPropertyDescriptor(Student.prototype, 'constructor'));
 
     const alex = new Student ('Alex', 'Turner', '1986');
     const yurii = new Student('Yurii','Shutkin', '1996');
@@ -125,4 +125,11 @@
     console.log(vova);
     console.log(noname);
 
+    function A (a) {
+        this.a = a;
+    }
+
+    const b = new A('d');
+    console.log(Object.getOwnPropertyDescriptor(A.prototype, 'constructor'))
+    console.log(b)
 })();
