@@ -9,12 +9,8 @@
         this.age = this.getAge();
         this.attendance = new Array(10);
         this.marks = new Array(10);
-        this.overagePoints = {
-            mark: null,
-            attendance: null
-        };
+        this.overagePoints = {mark: null, attendance: null};
         this.teacherComment = null;
-
 
         for(const arg of arguments) {
             if(typeof arg !== 'string' || !arg.trim()) {
@@ -32,7 +28,7 @@
 
         if(this.yearOfBirth > new Date().getFullYear()) throw new Error('Not valid data.');
         
-    }
+    };
 
     const studentPrototype = {
 
@@ -95,7 +91,7 @@
             if(this.findEmptyElIndex(this.marks) === 0 || this.findEmptyElIndex(this.attendance) === 0) return;
             this.overageMark();
             this.overageAttendance();
-            if(this.overagePoints.mark >= 9 && this.overagePoints.attendance >= 0.9){
+            if(this.overagePoints.mark >= 9 && this.overagePoints.attendance >= 0.9) {
                 this.teacherComment = 'Ути какой молодчинка!';
             } else if (this.overagePoints.mark < 9 && this.overagePoints.attendance < 0.9 ) {
                 this.teacherComment = 'Редиска!';
@@ -103,16 +99,16 @@
                 this.teacherComment = 'Норм, но можно лучше';
             };
             return this;
-        }
-    }
+        },
+    };
 
     
     Student.prototype = {
         ...studentPrototype,
-    }
+    };
     
-    Object.defineProperty(studentPrototype, constructor, {enumerable: false})
-    console.log(Object.getOwnPropertyDescriptors(studentPrototype));   // Дескриптор так и не изменил значение
+    Object.defineProperty(studentPrototype, 'constructor', {enumerable: false});
+    console.log(Object.getOwnPropertyDescriptor(studentPrototype, 'constructor'));
 
     const alex = new Student ('Alex', 'Turner', '1986');
     const yurii = new Student('Yurii','Shutkin', '1996');
